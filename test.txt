@@ -1,0 +1,80 @@
+*user*
+|기본 테이블|
+
+*target_info*
+|user:fk|bookkeeping:fk|target_spending|target_saving|
+
+*bookkeeping*
+|user:fk|cost_type:sel|cost|inout:bool|category:sel|desc|date|
+
+==============================
+
+# bookkeeping
+|1|static|3000|true|식대|-|  <- row
+|2|static|5000|true|식대|-|  <- row
+
+# python
+def 지출(request):
+    bks = bookkeeping.objects.filter(user=user.pk)
+
+    for bk in bks:
+        실제 지출/목표 지출 금액
+
+    context = {     # test한 함수 사용 방식
+        's': 000000000,
+        's': 000000000,
+        's': 000000000,
+        's': 000000000,
+        's': 000000000,
+    }
+
+# html
+{% for bk in bks %}
+    {{bk.cost}}
+{% endfor %}
+
+유저
+
+1. 로그인
+2. 로그아웃
+
+가계부
+
+*oho*
+1. 수입/지출
+3. 저축도달률 (실제 저축/목표 저축출 금액)
+5. 저축률 (실제 저축/수입)
+7. 전 (월/연도) 대비 지출차이
+
+*kim*
+2. 지출초과분 (실제 지출/목표 지출 금액)
+4. 지출률 (실제 지출/수입)
+6. 항목별 지출 합계
+8. 저축금액
+
+***
+
+1. 합산 시 minus
+2. 연산 결과 메모리 초과
+3. 주, 월, 연도 / 소비율 3가지
+
+
+def 항목별 지출 합계(self, cost, cost_type):
+    // var result = 0;
+    // cost_type
+    // rows:array
+    // for rows
+    //    if filter.type == cost_type && !filter.inout:
+    //          result += filter.cost
+    // return result
+
+test(cost : -)
+test(cost : digit)
+test(cost_type : number)
+test(cost_type : float)
+test(cost_type : 특수문자)
+test(cost_type : null)
+test(cost_type : *)
+test(cost_type : 0)
+test(cost_type : -)
+test(cost_type : -)
